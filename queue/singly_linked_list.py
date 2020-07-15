@@ -32,20 +32,21 @@ class LinkedList:
         else:
             # what node do we want to add the new node to? 
             # the last node in the list 
+            # we can get to the last node in the list by traversing it 
             current = self.head 
             while current.get_next() is not None:
                 current = current.get_next()
-            # end of linked list 
+            # we're at the end of the linked list 
             current.set_next(new_node)
             self.tail = new_node
 
     def remove_head(self):
-        # if list is empty?
+        # what if the list is empty?
         if not self.head:
             return None
-        # if list isnt empty?
+        # what if it isn't empty?
         else:
-            # return the value at the current head 
+            # we want to return the value at the current head 
             value = self.head.get_value()
             if self.head == self.tail:
                 self.tail = None
