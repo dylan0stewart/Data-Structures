@@ -27,9 +27,9 @@ class ListNode:
     """Rearranges this ListNode's previous and next pointers
     accordingly, effectively deleting this ListNode."""
     def delete(self):
-        if self.prev:
+        if self.prev: # overwrites current with next
             self.prev.next = self.next
-        if self.next:
+        if self.next: # overwrites current with previous
             self.next.prev = self.prev
         return self.value
 
@@ -85,13 +85,13 @@ class DoublyLinkedList:
     """Removes the List's current tail node, making the 
     current tail's previous node the new tail of the List.
     Returns the value of the removed Node."""
-    def remove_from_tail(self):
-        if self.tail:
-            self.length -= 1
-            if self.tail.prev:
+    def remove_from_tail(self): # 
+        if self.tail: #tail
+            self.length -= 1    
+            if self.tail.prev: #selecting 2nd to last
                 self.tail = self.tail.prev
                 return self.tail.next.delete()
-            else:
+            else: #if not tail
                 curr_tail = self.tail
                 self.tail = None
                 self.head = None
